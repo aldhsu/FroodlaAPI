@@ -1,6 +1,11 @@
 class DoodlesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
-    @doodle = Doodle.create(doodle_params)
+    File.open("#{Rails.root}/public/uploads/somefilename.png", 'wb') do |f|
+      f.write(params[:image].read)
+    end
+    binding.pry
     redirect_to doodles_path
   end
 
