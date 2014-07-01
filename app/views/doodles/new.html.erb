@@ -62,7 +62,7 @@
     function formData() {
     var file = dataUrltoBlob(canvas.toDataURL());
     var fd = new FormData();
-    fd.append("image", file, 'jeff.png');
+    fd.append("image", file);
     fd.append('user_id', '124124');
     return fd;
     }

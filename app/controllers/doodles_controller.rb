@@ -5,7 +5,8 @@ class DoodlesController < ApplicationController
     # File.open("#{Rails.root}/public/uploads/somefilename.png", 'wb') do |f|
     #   f.write(params[:image].read)
     # end
-    @doodle = Doodle.create(url: params[:image])
+    binding.pry
+    @doodle = Doodle.create(url: params[:image].tempfile)
     redirect_to doodles_path
   end
 
