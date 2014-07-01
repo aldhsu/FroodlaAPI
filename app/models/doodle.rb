@@ -14,4 +14,6 @@ class Doodle < ActiveRecord::Base
   belongs_to :prompt
   belongs_to :user
   has_many :ratings
+
+  mount_uploader :image, ImageUploader
 end

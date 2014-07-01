@@ -2,9 +2,10 @@ class DoodlesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    File.open("#{Rails.root}/public/uploads/somefilename.png", 'wb') do |f|
-      f.write(params[:image].read)
-    end
+    # File.open("#{Rails.root}/public/uploads/somefilename.png", 'wb') do |f|
+    #   f.write(params[:image].read)
+    # end
+    @doodle = Doodle.create(params[:image])
     binding.pry
     redirect_to doodles_path
   end
@@ -29,6 +30,6 @@ class DoodlesController < ApplicationController
 
   private
   def doodle_params
-    params.require(:doodle).permit(:user_id, :url, :prompt_id)
+    params.require(:doodle).permit(:user_id, :url, :prompt_id, :image)
   end
 end

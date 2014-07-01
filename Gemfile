@@ -37,6 +37,7 @@ gem 'spring',        group: :development
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails_12factor'
+gem 'cloudinary'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development do
