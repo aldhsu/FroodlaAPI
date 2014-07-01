@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  image_id   :integer
+#  doodle_id  :integer
 #  rating     :integer
 #  created_at :datetime
 #  updated_at :datetime

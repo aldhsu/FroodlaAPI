@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140630065001) do
 
   create_table "ratings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "image_id"
+    t.integer  "doodle_id"
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
