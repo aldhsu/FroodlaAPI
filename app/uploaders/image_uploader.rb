@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  begin
+    include Cloudinary::CarrierWave if Rails.env.production?
+  rescue
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

@@ -66,15 +66,22 @@
     fd.append('user_id', '124124');
     return fd;
     }
-
-    button.addEventListener("click", function() {
+    function submitPicture() {
       $.ajax({
         url: "/doodles  ",
         type: "POST",
         data: formData(),
         processData: false,
-        contentType: false
+        contentType: false,
+        success: function() {
+          window.location = '/doodles';
+        }
       })
+    }
+    button.addEventListener("click", function() {
+      submitPicture();
     })
+
+
   </script>
   <p id="print"></p>
