@@ -44,6 +44,7 @@
       }
     })
   </script>
+  <p id="print"></p>
   <button id="submit">Submit</button>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js">
   </script>
@@ -82,6 +83,30 @@
       submitPicture();
     })
 
+    var Timer;
+    var TotalSeconds;
 
+
+    function CreateTimer(TimerID, Time) {
+    Timer = document.getElementById(TimerID);
+    TotalSeconds = Time;
+
+    UpdateTimer();
+    window.setTimeout("Tick()", 1000);
+    }
+
+    function Tick() {
+    TotalSeconds -= 1;
+    UpdateTimer()
+    if (TotalSeconds == 0) {
+      submitPicture();
+    }
+    window.setTimeout("Tick()", 1000);
+    }
+
+    function UpdateTimer() {
+    Timer.innerHTML = TotalSeconds;
+    }
+
+    window.onload = CreateTimer("print", 10);
   </script>
-  <p id="print"></p>
