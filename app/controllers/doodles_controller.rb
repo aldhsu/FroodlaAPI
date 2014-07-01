@@ -6,7 +6,6 @@ class DoodlesController < ApplicationController
     #   f.write(params[:image].read)
     # end
     @doodle = Doodle.create(url: params[:image])
-    binding.pry
     redirect_to doodles_path
   end
 
