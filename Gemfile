@@ -36,6 +36,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rails_12factor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development do
