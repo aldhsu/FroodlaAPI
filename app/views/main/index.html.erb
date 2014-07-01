@@ -1,3 +1,4 @@
+<button id="signinButton">Sign in with Google</button>
 <script src="https://apis.google.com/js/plusone.js"></script>
 <script src="https://apis.google.com/js/client:plusone.js"></script>
 <script type="text/javascript">
@@ -40,6 +41,7 @@
   if (authResult['status']['signed_in']) {
     // Update the app to reflect a signed in user
     // Hide the sign-in button now that the user is authorized, for example:
+    console.log(authResult);
     document.getElementById('signinButton').setAttribute('style', 'display: none');
   } else {
     // Update the app to reflect a signed out user
@@ -51,4 +53,3 @@
   }
 }
 </script>
-<button id="signinButton">Sign in with Google</button>
