@@ -15,5 +15,5 @@ class Doodle < ActiveRecord::Base
   belongs_to :user
   has_many :ratings
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :url, ImageUploader
 end
