@@ -1,10 +1,11 @@
-<h1>New Doodle</h1>
+<h1><%= @prompt %></h1>
 
 <canvas id="canvas" width="400" height="400">
 </canvas>
   <script>
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
+
     function getMousePos(canvas, event){
       var rect = canvas.getBoundingClientRect();
       return {
@@ -67,9 +68,10 @@
     fd.append('user_id', '124124');
     return fd;
     }
+
     function submitPicture() {
       $.ajax({
-        url: "/doodles  ",
+        url: "/doodles",
         type: "POST",
         data: formData(),
         processData: false,
@@ -86,7 +88,6 @@
     var Timer;
     var TotalSeconds;
 
-
     function CreateTimer(TimerID, Time) {
     Timer = document.getElementById(TimerID);
     TotalSeconds = Time;
@@ -96,12 +97,13 @@
     }
 
     function Tick() {
-    TotalSeconds -= 1;
-    UpdateTimer()
-    if (TotalSeconds == 0) {
-      submitPicture();
-    }
-    window.setTimeout("Tick()", 1000);
+      TotalSeconds -= 1;
+      UpdateTimer();
+      if (TotalSeconds == 0) {
+        console.log('finish');
+        submitPicture();
+      }
+      window.setTimeout("Tick()", 1000);
     }
 
     function UpdateTimer() {

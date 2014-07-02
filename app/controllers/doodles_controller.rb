@@ -1,16 +1,15 @@
 class DoodlesController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   def create
-    # File.open("#{Rails.root}/public/uploads/somefilename.png", 'wb') do |f|
-    #   f.write(params[:image].read)
-    # end
-    @doodle = Doodle.create(url: params[:image].tempfile)
-    redirect_to doodles_path
+    @doodle = Doodle.create(url: params[:image].tempfile )
+    #ADD THIS WHEN GOOGLE LOGIN IS WOKRING
+    #@user.doodles << @doodle
   end
 
   def new
+    @prompt = Prompt.all.shuffle.first.question
     @doodle = Doodle.new
+
   end
 
   def show
@@ -19,6 +18,7 @@ class DoodlesController < ApplicationController
 
   def index
     @doodles = Doodle.all
+    raise
   end
 
   def destroy
@@ -26,6 +26,11 @@ class DoodlesController < ApplicationController
     @doodles.destroy
     redirect_to doodles_path
   end
+
+  def guess
+    @doodle = Doodle.all
+  end
+
 
   private
   def doodle_params

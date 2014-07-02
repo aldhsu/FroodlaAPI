@@ -42,12 +42,11 @@
     // Update the app to reflect a signed in user
     // Hide the sign-in button now that the user is authorized, for example:
     $.ajax({
-        url: "/",
+        url: "/attempt_log",
         type: "POST",
-        data: authResult,
-        processData: false,
-        contentType: false,
-        }
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: {auth_token: authResult},
+        immediate: true,
       })
   } else {
     // Update the app to reflect a signed out user

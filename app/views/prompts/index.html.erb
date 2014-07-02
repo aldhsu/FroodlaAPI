@@ -1,0 +1,5 @@
+<% @prompts.each do |prompt|%>
+  <p><%= prompt.question %></p>
+  <%= link_to("Delete", prompt_path(prompt), data: { method: :delete}) %>
+<% end %>
+

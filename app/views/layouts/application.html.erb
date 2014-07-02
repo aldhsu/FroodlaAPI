@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><%= link_to("Prompts", prompts_path) %></li>
+      <li><%= link_to("Rate Doodles", doodles_path) %></li>
+      <li><%= link_to("Draw!", new_doodle_path) %></li>
+    </ul>
+  </nav>
 
 <%= yield %>
 

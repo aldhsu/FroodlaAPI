@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'prompt/index'
+
   resources :doodles
   resources :users
+  resources :prompts
+
   root to: 'main#index'
-  get '/loggedin' to: 'main#loggedin'
+  post '/attempt_log' => 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

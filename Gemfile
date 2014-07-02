@@ -39,6 +39,7 @@ gem 'mini_magick'
 gem 'rails_12factor'
 gem 'cloudinary'
 gem 'google_plus'
+gem 'httparty'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development do
